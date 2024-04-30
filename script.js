@@ -24,7 +24,7 @@ form.addEventListener("submit", (e) => {
   let data = {
     full_name,
     org_name,
-    number,
+    number: number.slice(1),
   };
 
   if (!full_name || !org_name || !number) {
@@ -77,7 +77,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 let pdfViewer = document.getElementById("pdf-viewer");
 
 // Path to your PDF file
-let pdfFile = "./assets/commercial_offer_uzb_2023-12 (2).pdf";
+let pdfFile = "./assets/Presentation for Everything_UZ_2024-03-15.pdf";
 
 // Loading document
 pdfjsLib.getDocument(pdfFile).promise.then(function (pdfDoc) {
