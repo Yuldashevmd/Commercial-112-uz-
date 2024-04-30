@@ -57,6 +57,10 @@ form.addEventListener("submit", (e) => {
           icon: "success",
         }).then((res) => {
           modal.style.display = "block";
+          const a = document.createElement("a");
+          a.href = "./assets/Commercial.pdf";
+          a.download = "Commercial.pdf";
+          a.click();
           setTimeout(() => {
             sendFormBtn.removeAttribute("disabled");
             sendFormBtn.classList.remove("disabled");
