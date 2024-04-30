@@ -4,47 +4,94 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css
+"
+      rel="stylesheet"
+    />
+    <title>co.ccenter.uz</title>
   </head>
   <body>
-    <form>
-      <div class="title">Формани тулдиринг:</div>
-      <label for="phoneNumber">Телефон рақам:</label>
-      <input
-        type="text"
-        id="phoneNumber"
-        required
-        name="number"
-        placeholder="Телефон рақам"
-      />
+    <div class="logo">
+      <img src="assets/logo.svg" alt="logo" />
+    </div>
+    <form id="myForm">
+      <div class="title">Тижорат таклифини олиш учун формани тўлдиринг:</div>
+      <div class="form-content">
+        <div class="form-item">
+          <label for="full_name">ФИО:</label>
+          <div class="icon-input">
+            <i class="fa fa-user icon"></i>
+            <input
+              type="text"
+              id="full_name"
+              name="full_name"
+              placeholder="ФИО"
+            />
+          </div>
+          <p
+            class="error-fio"
+            style="display: none; color: crimson; margin: 0; font-size: 12px"
+          >
+            Илтимос ФИО ракамни туғри тўлдиринг!
+          </p>
+        </div>
+        <div class="form-item">
+          <label for="phoneNumber">Телефон рақам:</label>
+          <div class="icon-input">
+            <i class="fa fa-phone icon"></i>
+            <input
+              type="text"
+              id="phoneNumber"
+              name="number"
+              placeholder="+(998)97-123-45-67"
+              value="+998"
+            />
+          </div>
+          <p
+            class="error-phone"
+            style="display: none; color: crimson; margin: 0; font-size: 12px"
+          >
+            Илтимос телефон ракамни туғри тўлдиринг!
+          </p>
+        </div>
+        <div class="form-item">
+          <label for="organizationName">Ташкилот номи:</label>
+          <div class="icon-input">
+            <i class="fa fa-building icon"></i>
+            <input
+              type="text"
+              id="organizationName"
+              name="org_name"
+              placeholder="Ташкилот номи"
+            />
+          </div>
+          <p
+            class="error-org"
+            style="display: none; color: crimson; margin: 0; font-size: 12px"
+          >
+            Илтимос Ташкилот номини тўлдиринг!
+          </p>
+        </div>
+      </div>
 
-      <label for="organizationName">Ташкилот номи:</label>
-      <input
-        type="text"
-        id="organizationName"
-        required
-        name="org_name"
-        placeholder="Ташкилот номи"
-      />
-      <input type="submit" value="Юбориш" id="submit" />
+      <button id="submit" type="submit" form="myForm" value="Submit">
+        <div class="loader"></div>
+        КП олиш
+      </button>
     </form>
 
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <!-- <object
-          id="pdfObject"
-          type="application/pdf"
-          data="./assets/commercial_offer_uzb_2023-12 (2).pdf"
-          width="100%"
-          height="700px"
-        ></object> -->
-        <iframe
-          src="./assets/commercial_offer_uzb_2023-12 (2).pdf"
-          frameborder="0"
-          width="100%"
-          height="700px"
-        ></iframe>
+        <div id="pdf-viewer"></div>
       </div>
     </div>
 
