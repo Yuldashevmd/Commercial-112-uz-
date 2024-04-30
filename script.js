@@ -77,7 +77,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 let pdfViewer = document.getElementById("pdf-viewer");
 
 // Path to your PDF file
-let pdfFile = "./assets/Presentation for Everything_UZ_2024-03-15.pdf";
+let pdfFile = "./assets/Commercial.pdf";
 
 // Loading document
 pdfjsLib.getDocument(pdfFile).promise.then(function (pdfDoc) {
